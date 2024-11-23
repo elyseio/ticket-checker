@@ -37,7 +37,7 @@ def check_ticket(response, artists, url):
                 link_url = url + title_tag["href"]
 
                 print("=" * 64)
-                print(f"Ticket available for {artist}")
+                print(f"Ticket available for {artist.title()}")
                 print(f"Link: {link_url}")
                 print("=" * 64 + "\n")
 
