@@ -49,6 +49,7 @@ def main():
 
     request = get_request(url)
     if request:
+        print(f"Checking these artists: {artists}\n")
         check_ticket(request, artists, base_url)
     else:
         print("Failed to retrieve the page.")
