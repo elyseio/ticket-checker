@@ -47,6 +47,8 @@ def check_ticket(response, artists, url, dash_num):
         print("No artists specified to check tickets for.")
         return
 
+    artist_found = False
+
     soup = BeautifulSoup(response.text, "lxml")
 
     ticket_content = soup.find_all("div", class_="movie-item movie-item-three mb-50")
@@ -71,6 +73,10 @@ def check_ticket(response, artists, url, dash_num):
                 print(f"Ticket available for {artist.title()}")
                 print(f"Link: {link_url}")
                 print("=" * dash_num + "\n")
+                artist_found = True
+
+    if not artist_found:
+        print(f"No ticket available for {artists}\n")
 
 def main():
     """
@@ -91,7 +97,7 @@ def main():
     url = "https://www.ticketnet.com.ph/event-list"
 
     # What artist to check
-    artists = ['the script', 'the corrs']
+    artists = ['coldplay', 'linkin park']
 
     # GET request to the website
     request = get_request(url)
