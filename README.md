@@ -1,5 +1,4 @@
 # PH Python Ticket Event Checker
----
 
 ## Usage:
 - `source env/bin/activate`
