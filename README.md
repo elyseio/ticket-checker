@@ -9,7 +9,7 @@
 ## Notes:
 
 (artists array contains the artist you want to check, change according to the artist you want to check)
-`artists = ['the script', 'the corrs']`
+`artists = ['the script', 'the corrs']`  
 base url: https://www.ticketnet.com.ph/event-list
 
 ## Sample output:
