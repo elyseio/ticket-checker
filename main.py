@@ -96,7 +96,7 @@ def main():
     # GET request to the website
     request = get_request(url)
     if request:
-        print(f"\nChecking these artists: {artists}\n")
+        print(f"\nChecking for these artists: {artists}\n")
         check_ticket(request, artists, base_url, dash_num)
     else:
         print("Failed to retrieve the page.")
