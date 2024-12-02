@@ -49,6 +49,8 @@ def check_ticket(response, artists, url, dash_num):
 
     artist_found = False
 
+    available_artists = []
+
     soup = BeautifulSoup(response.text, "lxml")
 
     ticket_content = soup.find_all("div", class_="movie-item movie-item-three mb-50")
@@ -65,6 +67,7 @@ def check_ticket(response, artists, url, dash_num):
             continue
         
         title = title_tag.get_text().strip().lower()
+        available_artists.append(title)
         for artist in artists:
             if artist.lower() == title:
                 link_url = url + title_tag["href"]
@@ -77,6 +80,9 @@ def check_ticket(response, artists, url, dash_num):
 
     if not artist_found:
         print(f"No ticket available for {artists}\n")
+        print("Available tickets:")
+        for available_artist in available_artists:
+            print(available_artist)
 
 def main():
     """
