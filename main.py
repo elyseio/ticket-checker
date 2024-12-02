@@ -28,6 +28,26 @@ def get_request(url):
         print(f"Request Error: {err}")
     return None
 
+def show_available_ticket(available_artists):
+    """
+    Option to show all available tickets
+
+    Args:
+        available_artists (list): List of available artists based on check_ticket()
+
+    Returns:
+        None. Prints available tickets
+    """
+    ask = input("Would you like to list available artists (y/n): ")
+
+    if ask != "y":
+        return
+
+    print()
+    print("Available tickets:")
+    for available_artist in available_artists:
+        print(available_artist.title())
+
 def check_ticket(response, artists, url, dash_num):
     """
     Parses the HTML content of the response to check for tickets for specified artists.
@@ -80,9 +100,9 @@ def check_ticket(response, artists, url, dash_num):
 
     if not artist_found:
         print(f"No ticket available for {artists}\n")
-        print("Available tickets:")
-        for available_artist in available_artists:
-            print(available_artist)
+        show_available_ticket(available_artists)
+
+
 
 def main():
     """
@@ -99,8 +119,13 @@ def main():
     print("🎫 Ticket Checker Program Started! Checking for available tickets now... 🎫")
     print("=" * dash_num)
 
+    # Base URL
+
     base_url = "https://www.ticketnet.com.ph"
     url = "https://www.ticketnet.com.ph/event-list"
+
+    # Manually check tickets
+    print(f"\nURL: {url}")
 
     # What artist to check
     artists = ['coldplay', 'linkin park']
