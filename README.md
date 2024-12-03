@@ -14,6 +14,7 @@ $ python main.py
 
 (artists array contains the artist you want to check, change according to the artist you want to check)
 ```
+# main.py
 # line 131
 artists = ['the script', 'the corrs']
 ```
