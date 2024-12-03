@@ -2,10 +2,11 @@
 
 ## Usage:
 ```
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python main.py
+$ cd ticket/checker
+$ python -m venv .venv
+$ source .venv/bin/activate
+$ pip install -r requirements.txt
+$ python main.py
 ```
 
 
@@ -15,11 +16,15 @@ python main.py
 `artists = ['the script', 'the corrs']`  
 base url: https://www.ticketnet.com.ph/event-list
 
+
+
 ## Sample output:
 ```
 ====================================================================================
 🎫 Ticket Checker Program Started! Checking for available tickets now... 🎫
 ====================================================================================
+
+URL: https://www.ticketnet.com.ph/event-list
 
 Checking for these artists: ['the script', 'the corrs']
 
@@ -32,4 +37,6 @@ Link: https://www.ticketnet.com.ph/event-detail/THE-SCRIPT-SATELLITES-WORLD-TOUR
 Ticket available for The Corrs
 Link: https://www.ticketnet.com.ph/event-detail/The-Corrs
 ====================================================================================
+
+Would you like to list available artists (y/n): 
 ```
