@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from colorama import Fore, Back, Style, init
 
 def get_request(url):
     """
@@ -33,20 +34,23 @@ def show_available_ticket(available_artists):
     Option to show all available tickets
 
     Args:
-        available_artists (list): List of available artists based on check_ticket()
+        available_artists (dict): List of available artists based on check_ticket()
 
     Returns:
         None. Prints available tickets
     """
-    ask = input("Would you like to list available artists (y/n): ")
+    ask = input(Fore.MAGENTA + "Would you like to list available artists (y/n): ")
 
     if ask != "y":
         return
 
     print()
     print("Available tickets:")
-    for available_artist in available_artists:
-        print(available_artist.title())
+    for artist, link in available_artists.items():
+        print(Fore.LIGHTBLACK_EX + "="*100)
+        print(f"{artist.title()}: {Fore.CYAN + link}")
+        print(Fore.LIGHTBLACK_EX + "="*100)
+        print()
 
 def check_ticket(response, artists, url, dash_num):
     """
@@ -69,7 +73,7 @@ def check_ticket(response, artists, url, dash_num):
 
     artist_found = False
 
-    available_artists = []
+    available_artists = {}
 
     soup = BeautifulSoup(response.text, "lxml")
 
@@ -87,7 +91,8 @@ def check_ticket(response, artists, url, dash_num):
             continue
         
         title = title_tag.get_text().strip().lower()
-        available_artists.append(title)
+        link_url = url + title_tag["href"]
+        available_artists[title] =  link_url
         for artist in artists:
             if artist.lower() == title:
                 link_url = url + title_tag["href"]
@@ -99,7 +104,7 @@ def check_ticket(response, artists, url, dash_num):
                 artist_found = True
 
     if not artist_found:
-        print(f"No ticket available for {artists}\n")
+        print(Fore.RED + f"No ticket available for {artists}\n")
         show_available_ticket(available_artists)
 
 
@@ -112,20 +117,33 @@ def main():
     - Checks for tickets of specified artists.
     """
 
+
+    # Initialize colorama
+    init(autoreset=True)
+
+    #print(Fore.GREEN + "\nAvailable tickets:")
+    #print(Fore.CYAN + "=" * 84)
+
+    #for ticket in tickets:
+    #print(Fore.YELLOW + "=" * 84)
+    #print(Fore.GREEN + f"{ticket[0]}: {ticket[1]}")
+    #print(Fore.YELLOW + "=" * 84)
+
+
     dash_num = 84
 
     # Opening statement
-    print("=" * dash_num)
-    print("🎫 Ticket Checker Program Started! Checking for available tickets now... 🎫")
-    print("=" * dash_num)
+    print(Fore.LIGHTBLACK_EX + "=" * dash_num)
+    print(Fore.GREEN + "🎫 Ticket Checker Program Started! Checking for available tickets now... 🎫")
+    print(Fore.LIGHTBLACK_EX + "=" * dash_num)
 
     # Base URL
 
     base_url = "https://www.ticketnet.com.ph"
     url = "https://www.ticketnet.com.ph/event-list"
 
-    # Manually check tickets
-    print(f"\nURL: {url}")
+    # URL Ticket
+    print(f"\nURL: {Fore.CYAN + url}")
 
     # What artist to check
     artists = ['coldplay', 'linkin park']
