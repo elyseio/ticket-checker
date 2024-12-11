@@ -1,32 +1,63 @@
 # Python Ticket Event Checker
 
-## Usage:
-```
-$ cd ticket-checker
-$ python -m venv .venv
-$ source .venv/bin/activate
-$ pip install -r requirements.txt
-$ python main.py
-```
+A Python program to check for event tickets based on specified artists.
 
+---
 
-## Notes:
+## Usage
 
-(artists array contains the artist you want to check, change according to the artist you want to check)
-```
+Follow these steps to run the program:
+
+1. Clone the repository and navigate to the project directory:
+   ```bash
+   $ cd ticket-checker
+   ```
+
+2. Create and activate a virtual environment:
+   ```bash
+   $ python -m venv .venv
+   $ source .venv/bin/activate  # For Linux/Mac
+   $ .venv\Scripts\activate    # For Windows
+   ```
+
+3. Install the required dependencies:
+   ```bash
+   $ pip install -r requirements.txt
+   ```
+
+4. Run the program:
+   ```bash
+   $ python main.py
+   ```
+
+---
+
+## Configuration
+
+You can customize the artists you want to check by modifying the `artists` array in `main.py`:
+
+```python
 # main.py
-# line 131
+# Line 139
 artists = ['the script', 'the corrs']
 ```
 
-base url: https://www.ticketnet.com.ph/event-list
+Add or change the artists in the array to fit your needs.
 
+---
 
+## Base URL
 
-## Sample output:
-```
+The program fetches event details from the following base URL:
+- [Ticketnet Event List](https://www.ticketnet.com.ph/event-list)
+
+---
+
+## Sample Output
+
+```text
 ====================================================================================
-🎫 Ticket Checker Program Started! Checking for available tickets now... 🎫
+🎜 Ticket Checker Program Started! Checking for available tickets now... 🎜
 ====================================================================================
 
 URL: https://www.ticketnet.com.ph/event-list
@@ -43,5 +74,15 @@ Ticket available for The Corrs
 Link: https://www.ticketnet.com.ph/event-detail/The-Corrs
 ====================================================================================
 
-Would you like to list available artists (y/n): 
+Would you like to list available artists (y/n):
 ```
+
+---
+
+## Notes
+
+- Ensure the `artists` array contains the names of the artists you want to track.
+- The program is case-insensitive when checking for artist names.
+
+Feel free to customize the `artists` array and adapt the program to your requirements!
+
