@@ -117,28 +117,18 @@ def main():
     - Checks for tickets of specified artists.
     """
 
-
     # Initialize colorama
     init(autoreset=True)
 
-    #print(Fore.GREEN + "\nAvailable tickets:")
-    #print(Fore.CYAN + "=" * 84)
-
-    #for ticket in tickets:
-    #print(Fore.YELLOW + "=" * 84)
-    #print(Fore.GREEN + f"{ticket[0]}: {ticket[1]}")
-    #print(Fore.YELLOW + "=" * 84)
-
-
+    # Dash numbers
     dash_num = 84
 
-    # Opening statement
+    # Opening message
     print(Fore.LIGHTBLACK_EX + "=" * dash_num)
-    print(Fore.GREEN + "🎫 Ticket Checker Program Started! Checking for available tickets now... 🎫")
+    print(Fore.GREEN + "🎜Ticket Checker Program Started! Checking for available tickets now...🎜")
     print(Fore.LIGHTBLACK_EX + "=" * dash_num)
 
     # Base URL
-
     base_url = "https://www.ticketnet.com.ph"
     url = "https://www.ticketnet.com.ph/event-list"
 
