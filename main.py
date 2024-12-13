@@ -125,7 +125,7 @@ def main():
 
     # Opening message
     print(Fore.LIGHTBLACK_EX + "=" * dash_num)
-    print(Fore.GREEN + "🎜Ticket Checker Program Started! Checking for available tickets now...🎜")
+    print(Fore.GREEN + "🎜 Ticket Checker Program Started! Checking for available tickets now...🎜")
     print(Fore.LIGHTBLACK_EX + "=" * dash_num)
 
     # Base URL
