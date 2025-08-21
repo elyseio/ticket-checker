@@ -1,6 +1,6 @@
-# Python Ticket Event Checker
+# Python Ticket Event Checker (WIP)
 
-A Python program to check for event tickets based on specified artists.
+A Python CLI program to check for concerts/events based on specified artists.
 
 ---
 
